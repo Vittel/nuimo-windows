@@ -8,7 +8,8 @@ namespace NuimoSDK
         public bool[] Leds { get; }
 
         private const int LedCount = 81;
-        private readonly char[] _ledOffCharacters = " 0".ToCharArray();
+
+        private readonly char[] ledOffCharacters = " 0".ToCharArray();
 
         public NuimoLedMatrix(string pattern)
         {
@@ -16,7 +17,7 @@ namespace NuimoSDK
                 .Substring(0, Math.Min(LedCount, pattern.Length))
                 .PadRight(LedCount)
                 .ToCharArray()
-                .Select(c => (!_ledOffCharacters.Contains(c)))
+                .Select(c => (!ledOffCharacters.Contains(c)))
                 .ToArray();
         }
     }
